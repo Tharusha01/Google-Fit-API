@@ -44,7 +44,7 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         back.setOnClickListener{
-            val intent = Intent(this,HomeActivity::class.java)
+            val intent = Intent(this,TestActivity::class.java)
             startActivity(intent)
         }
     }
@@ -58,8 +58,9 @@ class DetailsActivity : AppCompatActivity() {
 
 
         val readRequest = DataReadRequest.Builder()
-            .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
             .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
+            .bucketByTime(1, TimeUnit.HOURS)
+            .aggregate(DataType.TYPE_LOCATION_SAMPLE, DataType.AGGREGATE_LOCATION_BOUNDING_BOX)
             .build()
 
 
@@ -68,11 +69,14 @@ class DetailsActivity : AppCompatActivity() {
             Fitness.getHistoryClient(this, it)
                 .readData(readRequest)
                 .addOnSuccessListener {
-                    Log.d(LOG_TAG, "onSuccess()") }
+                    Log.d(LOG_TAG, "onSuccess()")
+                }
                 .addOnFailureListener {
-                        e -> Log.e(LOG_TAG, "onFailure()", e) }
+                        e -> Log.e(LOG_TAG, "onFailure()", e)
+                }
                 .addOnCompleteListener {
-                    Log.d(LOG_TAG, "onComplete()") }
+                    Log.d(LOG_TAG, "onComplete()")
+                }
         }
     }
 

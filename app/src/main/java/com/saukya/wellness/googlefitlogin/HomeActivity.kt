@@ -29,10 +29,10 @@ class HomeActivity : AppCompatActivity() {
             print("userEmail "+ email +
                     "\n userPassword "+ pass)
             if (email.isNotEmpty() && pass.isNotEmpty()){
-                if(email == "email" && pass == "pass"){
+                if(email == "e" && pass == "1"){
                     Toast.makeText(this,"Successfully registered...!", Toast.LENGTH_SHORT).show()
                     //register()
-                    val intent = Intent(this, DetailsActivity::class.java)
+                    val intent = Intent(this, TestActivity::class.java)
                     startActivity(intent)
                 }else{
                     Toast.makeText(this,"Enter valied details", Toast.LENGTH_SHORT).show()
