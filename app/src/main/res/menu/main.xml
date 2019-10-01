@@ -11,5 +11,13 @@
           android:title="Read step data"
           android:orderInCategory="100"
           app:showAsAction="never" />
+    <item android:id="@+id/action_read_distance"
+          android:title="Read Distance"
+          android:orderInCategory="100"
+          app:showAsAction="never" />
+    <item android:id="@+id/action_read_calories"
+          android:title="Read Calories"
+          android:orderInCategory="100"
+          app:showAsAction="never" />
 
 </menu>

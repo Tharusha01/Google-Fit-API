@@ -6,5 +6,8 @@
     <string name="action_dump_subs">List Active Subscriptions</string>
     <string name="action_cancel_subs">Cancel subscriptions</string>
     <string name="action_settings">Settings</string>
+    <string name="defaultValue">0</string>
+    <string name="menu_refresh">Refreshing</string>
+
 
 </resources>
