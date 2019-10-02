@@ -1,4 +1,5 @@
 package com.saukya.wellness.googlefitlogin
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,9 +18,8 @@ class DetailsActivity : AppCompatActivity() {
         val back = findViewById<Button>(R.id.btn_back)
 
 
-
         back.setOnClickListener {
-            val intent = Intent(this, TestActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

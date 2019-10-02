@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         mybtn.setOnClickListener {
             // Handler code here.
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, TestActivity::class.java)
             startActivity(intent)
         }
     }

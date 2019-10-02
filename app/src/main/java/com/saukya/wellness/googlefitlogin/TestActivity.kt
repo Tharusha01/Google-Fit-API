@@ -18,10 +18,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
 import com.google.android.gms.fitness.data.DataType
+import com.google.android.gms.fitness.data.DataType.TYPE_DISTANCE_DELTA
 import com.google.android.gms.fitness.data.Field
-
-
-
 
 
 @Suppress("IMPLICIT_CAST_TO_ANY")
@@ -140,15 +138,17 @@ class TestActivity : AppCompatActivity() {
     private fun readDataDistance() {
 
         Fitness.getHistoryClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-            .readDailyTotal(DataType.TYPE_DISTANCE_DELTA)
+            .readDailyTotal(TYPE_DISTANCE_DELTA)
             .addOnSuccessListener { dataSet ->
                 val total = (if (dataSet.isEmpty)
                     0
                 else
-                    dataSet.dataPoints[0].getValue(Field.FIELD_DISTANCE).asFloat())
+                    dataSet.dataPoints[0].getValue(Field.FIELD_DISTANCE).asFloat().toInt())
                 Toast.makeText(this,"Total Distance: $total", Toast.LENGTH_SHORT).show()
-                Log.i(TAG, "Total steps: $total")
-                val dis = total.toString() + "m"
+                Log.i(TAG, "Total Distance: $total")
+                val disTotal = total * 0.001
+
+                val dis = "%.2f".format(disTotal).toDouble().toString()  + "km"
 
                 distance.text = dis
             }
@@ -163,12 +163,13 @@ class TestActivity : AppCompatActivity() {
                 val total = (if (dataSet.isEmpty)
                     0
                 else
-                    dataSet.dataPoints[0].getValue(Field.FIELD_CALORIES).asFloat())
+                    dataSet.dataPoints[0].getValue(Field.FIELD_CALORIES).asFloat().toInt())
                 Toast.makeText(this,"Total Calories: $total", Toast.LENGTH_SHORT).show()
                 Log.i(TAG, "Total Calories: $total")
-                calories.text = "$total"
+                val cal = total.toString() + " cal"
+                calories.text = cal
             }
-            .addOnFailureListener { e -> Log.w(TAG, "There was a problem getting the step count.", e) }
+            .addOnFailureListener { e -> Log.w(TAG, "There was a problem getting the Calories count.", e) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
