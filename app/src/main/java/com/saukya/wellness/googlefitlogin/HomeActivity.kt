@@ -51,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
             print("userEmail "+ email +
                     "\n userPassword "+ pass)
             if (email.isNotEmpty() && pass.isNotEmpty()){
-                if(email == "e" && pass == "1"){
+                if(email == "user" && pass == "test123#"){
                     Toast.makeText(this,"Successfully registered...!", Toast.LENGTH_SHORT).show()
                     //register()
                     val intent = Intent(this, TestActivity::class.java)

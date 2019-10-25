@@ -68,7 +68,7 @@ class TestActivity : AppCompatActivity() {
             initializeLogging()
             testBTN.setOnClickListener {
 
-                val intent = Intent(this, DetailsActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             }
     }
@@ -195,22 +195,6 @@ class TestActivity : AppCompatActivity() {
 
     /** Initializes a custom log class that outputs both to in-app targets and logcat.  */
     private fun initializeLogging() {
-        // Wraps Android's native log framework.
-        //        LogWrapper logWrapper = new LogWrapper();
-        //        // Using Log, front-end to the logging chain, emulates android.util.log method signatures.
-        //        Log.setLogNode(logWrapper);
-        //        // Filter strips out everything except the message text.
-        //        MessageOnlyLogFilter msgFilter = new MessageOnlyLogFilter();
-        //        logWrapper.setNext(msgFilter);
-        //        // On screen logging via a customized TextView.
-        //        LogView logView = (LogView) findViewById(R.id.sample_logview);
-        //
-        //        // Fixing this lint error adds logic without benefit.
-        //        // noinspection AndroidLintDeprecation
-        //        logView.setTextAppearance(R.style.Log);
-        //
-        //        logView.setBackgroundColor(Color.WHITE);
-        //        msgFilter.setNext(logView);
         Log.i(TAG, "Ready")
     }
 

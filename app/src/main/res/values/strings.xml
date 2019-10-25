@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GoogleFitLogin</string>
+    <string name="app_name">Fitness Tester</string>
     <string name="title_activity_home">Home</string>
 
     <string name="intro_text">Use the menu to explore actions.</string>
